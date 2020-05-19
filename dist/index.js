@@ -23114,6 +23114,11 @@ async function executeDocerCompose(serviceName, pushName) {
     var { stdout, stderr } = await exec(`docker-compose -f ./docker-compose.yml build ${serviceName}`);
     console.log('stdout:', stdout);
     console.log('stderr:', stderr);
+    const imageName = stdout.match(/Successfully tagged ([a-z:_]+)/)[1];
+    console.log('imageName:', imageName);
+    var { stdout, stderr } = await exec(`docker tag ${imageName} ${pushName}` );
+    console.log('stdout:', stdout);
+    console.log('stderr:', stderr);
   } catch (e) {
     console.error(e); // should contain code (exit code) and signal (that caused the termination).
     throw e;
