@@ -23132,16 +23132,16 @@ async function executeDocerCompose(serviceName, pushName) {
 
 try {
   // `service-name` input defined in action metadata file
-  const serviceName = core.getInput('service-name') || "noting";
+  const serviceName = core.getInput('service-name'); 
   console.log(`task param is ${serviceName}!`);
 
 
   // `push-name` input defined in action metadata file
-  const pushName = core.getInput('push-name') || "noting";
+  const pushName = core.getInput('push-name'); 
   console.log(`task param is ${pushName}!`);
   
   // `working-directory` input defined in action metadata file
-  const workingDirectory = core.getInput('working-directory')  || "nothing";
+  const workingDirectory = core.getInput('working-directory');
   console.log(`working-directory param is ${workingDirectory}!`);
  
   fs.statSync(workingDirectory);
