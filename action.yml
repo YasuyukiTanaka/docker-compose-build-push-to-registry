@@ -1,0 +1,19 @@
+name: 'docker-compose build & push to registry'
+description: 'docker-compose build , push and push to registry'
+inputs:
+  service-name:
+    description: 'docker-compose build service'
+    required: true
+  push-name:
+    description: 'docker-compose push to name'
+    required: true
+  working-directory:
+    description: 'docker-compose execute directory'
+    required: false
+    default: '.'
+outputs:
+  pushed-image-name: # image name of output
+    description: 'The time we we greeted you'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
