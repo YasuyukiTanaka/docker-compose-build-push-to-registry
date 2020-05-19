@@ -7,11 +7,12 @@ const exec = util.promisify(require('child_process').exec)
 
 async function executeDocerCompose(serviceName, pushName) {
   try {
-    const { buildStdout, buildStderr } = await exec(`docker-compose -f ./docker-compose.yml build ${serviceName}`);
-    console.log('buildStdout:', buildStdout);
-    console.log('buildStderr:', buildStderr);
+    var { stdout, stderr } = await exec(`docker-compose -f ./docker-compose.yml build ${serviceName}`);
+    console.log('stdout:', stdout);
+    console.log('stderr:', stderr);
   } catch (e) {
     console.error(e); // should contain code (exit code) and signal (that caused the termination).
+    throw e;
   }
 }
 
