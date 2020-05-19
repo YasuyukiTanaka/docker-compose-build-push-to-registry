@@ -12,7 +12,7 @@ inputs:
     required: false
     default: '.'
 outputs:
-  pushed-image-name: # image name of output
+  pushed-image-size: # image name of output
     description: 'The time we we greeted you'
 runs:
   using: 'node12'

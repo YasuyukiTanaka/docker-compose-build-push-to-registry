@@ -23122,6 +23122,8 @@ async function executeDocerCompose(serviceName, pushName) {
     var { stdout, stderr } = await exec(`docker push ${pushName}` );
     console.log('stdout:', stdout);
     console.log('stderr:', stderr);
+    const imageSize = stdout.match(/size: ([0-9]+)/)[1];
+    core.setOutput('pushed-image-size', imageSize);
   } catch (e) {
     console.error(e); // should contain code (exit code) and signal (that caused the termination).
     throw e;
