@@ -23119,6 +23119,9 @@ async function executeDocerCompose(serviceName, pushName) {
     var { stdout, stderr } = await exec(`docker tag ${imageName} ${pushName}` );
     console.log('stdout:', stdout);
     console.log('stderr:', stderr);
+    var { stdout, stderr } = await exec(`docker push ${pushName}` );
+    console.log('stdout:', stdout);
+    console.log('stderr:', stderr);
   } catch (e) {
     console.error(e); // should contain code (exit code) and signal (that caused the termination).
     throw e;
